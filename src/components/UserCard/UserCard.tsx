@@ -8,6 +8,7 @@ export const UserCard: React.FC<UserProps> = ({
   avatar,
   firstName,
   lastName,
+  registeredAge,
   registeredDate,
   email,
 }) => {
@@ -32,6 +33,8 @@ export const UserCard: React.FC<UserProps> = ({
           <Card.Text>Date of registration: {getDate(registeredDate)}</Card.Text>
           <Card.Text>
             <a href={`mailto:${email}`}>{email}</a>
+            <br/>
+            {registeredAge}
           </Card.Text>
         </Card.Body>
       </Card>

@@ -1,18 +1,22 @@
 import React from "react";
 import Accordion from "react-bootstrap/Accordion";
-import Card from "react-bootstrap/Card";
 
-export const AccordionComponent = () => {
+interface AccordionProps {
+  count: number,
+}
+
+export const AccordionComponent: React.FC<AccordionProps> = (props) => {
+
   return (
-    <Accordion defaultActiveKey="0">
-      <Card>
-        <Accordion.Toggle as={Card.Header} eventKey="0">
-          Click me!
-        </Accordion.Toggle>
+    <Accordion >
+      <Accordion.Item eventKey="0">
+        <Accordion.Button>
+          {props.count - 9}-{props.count}
+        </Accordion.Button>
         <Accordion.Collapse eventKey="0">
-          <Card.Body>Hello! I'm the body</Card.Body>
+          <>{props.children}</>
         </Accordion.Collapse>
-      </Card>
+      </Accordion.Item>
     </Accordion>
   );
 };

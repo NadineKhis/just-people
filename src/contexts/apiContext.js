@@ -8,7 +8,7 @@ export const APIContextProvider = ({ children }) => {
 
   useEffect(() => {
     async function fetchData() {
-      const { data } = await axios.get("https://randomuser.me/api/?results=30");
+      const { data } = await axios.get("https://randomuser.me/api/?results=100");
       setUsers(data);
     }
     fetchData();
