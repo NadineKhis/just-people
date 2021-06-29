@@ -1,18 +1,14 @@
 import React from "react";
+import InputGroup from "react-bootstrap/InputGroup";
+import { FormControl } from "react-bootstrap";
 
 export const SearchForm: React.FC = () => {
   return (
-    <div className="mb-2">
-      <div className="form-group">
-        <div className="input-group">
-          <input
-            type="search"
-            className="form-control"
-            id="searchFrom"
-            placeholder="Find a person"
-          />
-        </div>
-      </div>
-    </div>
+    <InputGroup className="mb-3">
+      <InputGroup.Text id="basic-addon1">🔎</InputGroup.Text>
+      <FormControl
+        placeholder="Find a person"
+      />
+    </InputGroup>
   );
 };

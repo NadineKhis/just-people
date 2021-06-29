@@ -1,19 +1,12 @@
 import React from "react";
-import { Navbar } from "../components/Navbar/Navbar";
-import { MainScreen } from "../components/MainScreen/MainScreen";
+import { NavbarComponent } from "../components/Navbar/NavbarComponent";
+import { MainScreen } from "./MainScreen/MainScreen";
 
 function App() {
   return (
     <>
-      {/*<Router>*/}
-      <Navbar />
+      <NavbarComponent />
       <MainScreen />
-      {/*  <Switch>*/}
-      {/*    <Route component={MainScreen} exact path="/"/>*/}
-      {/*    <Route  component={About} exact path="/about"/>*/}
-      {/*  </Switch>*/}
-      {/*</Router>*/}
-      {/*/!*<Users/>*!/*/}
     </>
   );
 }
