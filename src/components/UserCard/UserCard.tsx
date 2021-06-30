@@ -24,7 +24,7 @@ export const UserCard: React.FC<UserProps> = ({
         }}
       >
         <Card.Header>
-          <img src={avatar} alt="avatar"/>{" "}
+          <img src={avatar} alt="avatar" />{" "}
         </Card.Header>
         <Card.Body>
           <Card.Title>
@@ -33,7 +33,7 @@ export const UserCard: React.FC<UserProps> = ({
           <Card.Text>Date of registration: {getDate(registeredDate)}</Card.Text>
           <Card.Text>
             <a href={`mailto:${email}`}>{email}</a>
-            <br/>
+            <br />
             {registeredAge}
           </Card.Text>
         </Card.Body>
