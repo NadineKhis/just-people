@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import axios from "axios";
+import { usersCount } from "../constants/constants";
 
 const APIContext = createContext();
 
@@ -9,9 +10,9 @@ export const APIContextProvider = ({ children }) => {
   useEffect(() => {
     async function fetchData() {
       const { data } = await axios.get(
-        "https://randomuser.me/api/?results=100"
+        `https://randomuser.me/api/?results=${usersCount}`
       );
-      setUsers(data);
+      setUsers(data.results);
     }
     fetchData();
   }, []);

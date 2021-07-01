@@ -3,28 +3,32 @@ import { useAPI } from "../../contexts/apiContext";
 import { UserCard } from "../../components/UserCard/UserCard";
 import { Spinner } from "../../components/Spinner/Spinner";
 import { AccordionComponent } from "../../components/AccordionComponent/AccordionComponent";
+import {useSpinner} from "../../contexts/isTypingContext";
 
-export function UsersContainer() {
+export const UsersContainer: React.FC = () => {
   const { users } = useAPI();
-  const length = users.results?.length;
+  const { isTyping } = useSpinner();
+  const length = users?.length;
   let step = 10;
   let accordSection: Array<object> = [];
-  const sortedUsers = users.results?.sort(
+  const sortedUsers = users?.sort(
     (a: any, b: any) => a.registered.age - b.registered.age
   );
 
   return (
     <>
-      {!users.results ? (
+      {users && !Object.keys(users).length || isTyping ? (
         <Spinner />
       ) : (
-        sortedUsers.map((obj: any, id: number) => {
+        sortedUsers?.map((obj: any, id: number) => {
           if (obj.registered.age <= step && id + 1 !== length) {
             accordSection.push(obj);
+            return null
           } else {
             step = step + 10;
-            let tmp = [...accordSection];
-            accordSection = [];
+            const tmp = [...accordSection];
+            if (id + 1 === length) tmp.push(obj)
+            accordSection = [obj];
             return (
               <AccordionComponent key={step - 10} count={step - 10}>
                 {tmp.map((user: any) => {
